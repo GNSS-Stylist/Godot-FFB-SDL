@@ -17,7 +17,7 @@ env = SConscript("godot-cpp/SConstruct")
 if env["platform"] == "windows":
     env.Append(CPPPATH=['include/'])
     env.Append(LIBPATH=['lib/SDL2/'])
-    env.Append(LIBS=['SDL2.dll.dll'])
+    env.Append(LIBS=['lib/SDL2/SDL2_dll'])
 
 elif env["platform"] == "linux":
     env.Append(CPPPATH=['include/'])
