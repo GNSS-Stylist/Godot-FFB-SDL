@@ -4,9 +4,19 @@
 
 // #include "Godot.hpp"
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_haptic.h>
-#include <SDL2/SDL_joystick.h>
+
+// Trying to make this work by fixing "Mistake 2" mentioned here:
+// https://nullprogram.com/blog/2023/01/08/
+//#include <SDL2/SDL.h>
+//#include <SDL2/SDL_haptic.h>
+//#include <SDL2/SDL_joystick.h>
+
+// Currently these includes were downloaded with
+// SDL2-2.32.8
+#include "SDL.h"
+#include "SDL_haptic.h"
+#include "SDL_joystick.h"
+
 
 #include "godot_cpp/classes/node.hpp"
 

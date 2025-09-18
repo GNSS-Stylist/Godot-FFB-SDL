@@ -20,9 +20,25 @@ if env["platform"] == "windows":
     env.Append(LIBS=['SDL2.dll.dll'])
 
 elif env["platform"] == "linux":
-    env.Append(CPPPATH=['include/'])
-    env.Append(LINKFLAGS='-lSDL2')
-    #env.Append(LIBS="libSDL2")
+#    env.Append(CPPPATH=['include/'])
+# Moved below: env.Append(LINKFLAGS='-lSDL2')
+    
+    env.Append(LIBS=['SDL2'])
+
+# my additions:
+    env.Append(CCFLAGS=['-I/usr/local/include/SDL2'])
+    env.Append(CCFLAGS=['-D_REENTRANT'])
+
+# Static libs:
+    env.Append(LINKFLAGS='-L/usr/local/lib /usr/local/lib/libSDL2.a -lm -lpthread')
+
+# Dynamic libs:
+#    env.Append(LINKFLAGS='-L/usr/local/lib')
+#    env.Append(LINKFLAGS='-Wl,-rpath,/usr/local/lib')
+#    env.Append(LINKFLAGS='-Wl,--enable-new-dtags')
+#    env.Append(LINKFLAGS='-lSDL2')
+#    env.Append(LINKFLAGS='lpthread')
+
 
 env.Append(CPPPATH=["src/"])
 sources = Glob("src/*.cpp")
